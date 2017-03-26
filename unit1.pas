@@ -17,6 +17,7 @@ type
     Button1: TButton;
     Button3: TButton;
     CheckListBox1: TCheckListBox;
+
     Edit1: TEdit;
     Label1: TLabel;
     Label2: TLabel;
