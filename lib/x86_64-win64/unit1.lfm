@@ -18,24 +18,9 @@ object Form1: TForm1
     Width = 726
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
-    ClientHeight = 111
-    ClientWidth = 726
     Color = 11711154
     ParentColor = False
     TabOrder = 0
-    object StaticText1: TStaticText
-      Left = 337
-      Height = 90
-      Top = 8
-      Width = 586
-      Anchors = [akTop, akLeft, akRight, akBottom]
-      Caption = 'BSB Backup'
-      Font.Color = 16756224
-      Font.Height = -27
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 0
-    end
   end
   object Panel2: TPanel
     Left = 0

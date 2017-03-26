@@ -100,7 +100,9 @@ begin
     dDest := Edit1.Text;
     dSrc:= '';
     prog:= 'cmd.exe';
-
+    ProgressBar1.Min:=0;
+    ProgressBar1.Max:=ListBox1.Items.Count;
+    ProgressBar1.Position:= ProgressBar1.Position + 1;
     for i := 0 to ListBox1.Items.Count - 1  do
       begin
       dSrc := ListBox1.Items.ValueFromIndex[i];
@@ -110,9 +112,9 @@ begin
       posDroiteDelim := totalChar - posDelim + 1;
       s := RightStr(dSrc, posDroiteDelim);
       //Label4.Caption := 'Copie en cours...';
-      commande:= Concat('/c robocopy ', dSrc, ' ', dDest+s, '\', ' /MIR /W:10 /R:1 /NP /V /X /TEE');
+      commande:= Concat('/c robocopy ', dSrc, ' ', dDest+s, '\', ' /MIR /W:10 /R:1 /NP /V /X /log:"log.txt" /v /TEE');
       ShellExecute(0,'open',PChar(prog),PChar(commande),PChar(extractfilepath(prog)), 0);
-
+      ProgressBar1.Position:= ProgressBar1.Position + 1;
       Label4.Caption := 'Copie Terminée...';
       end;
     ListBox1.Items.Clear;
