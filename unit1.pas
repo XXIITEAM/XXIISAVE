@@ -114,6 +114,7 @@ begin
 
       Label4.Caption := 'Copie Terminée...';
       end;
+    ListBox1.Items.Clear;
 end;
 
 procedure TForm1.FormDblClick(Sender: TObject);
