@@ -17,18 +17,13 @@ type
     Button1: TButton;
     Button3: TButton;
     CheckListBox1: TCheckListBox;
-
     Edit1: TEdit;
-    Label1: TLabel;
-    Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     ListBox1: TListBox;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
-    Panel4: TPanel;
-    Panel5: TPanel;
     Process1: TProcess;
     ProgressBar1: TProgressBar;
     SelectDirectoryDialog1: TSelectDirectoryDialog;
@@ -39,6 +34,7 @@ type
     procedure CopyDir(Sender: TObject);
     procedure FormDblClick(Sender: TObject);
     procedure DestDir(Sender: TObject);
+    procedure Panel2Click(Sender: TObject);
   private
   public
 
@@ -69,6 +65,11 @@ end;
 procedure TForm1.DestDir(Sender: TObject);
 begin
    Edit1.Text:= SelectDirectoryDialog1.FileName;
+end;
+
+procedure TForm1.Panel2Click(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.Button3Click(Sender: TObject);
