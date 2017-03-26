@@ -136,7 +136,35 @@ end;
 
 procedure TForm1.ListBox1Click(Sender: TObject);
 begin
+<<<<<<< HEAD
   ListBox1.Items.Delete(ListBox1.ItemIndex);
+=======
+    Process1.Create(nil);
+    Process1.Executable:= 'robocopy';
+
+   //CreatePipe(InputPipeRead, InputPipeWrite, @Security, 0);
+    dDest := Edit1.Text;
+    dSrc:= '';
+    prog:= 'cmd.exe';
+    ProgressBar1.Min:=0;
+    ProgressBar1.Max:=ListBox1.Items.Count;
+    ProgressBar1.Position:= ProgressBar1.Position + 1;
+    for i := 0 to ListBox1.Items.Count - 1  do
+      begin
+      dSrc := ListBox1.Items.ValueFromIndex[i];
+
+      posDelim := LastDelimiter('\',dSrc);
+      totalChar:= dSrc.Length;
+      posDroiteDelim := totalChar - posDelim + 1;
+      s := RightStr(dSrc, posDroiteDelim);
+      //Label4.Caption := 'Copie en cours...';
+      commande:= Concat('/c robocopy ', dSrc, ' ', dDest+s, '\', ' /MIR /W:10 /R:1 /NP /V /X /log:"log.txt" /v /TEE');
+      ShellExecute(0,'open',PChar(prog),PChar(commande),PChar(extractfilepath(prog)), 0);
+      ProgressBar1.Position:= ProgressBar1.Position + 1;
+      end;
+    Label4.Caption := 'Copie Terminée...';
+    ListBox1.Items.Clear;
+>>>>>>> origin/master
 end;
 
 
