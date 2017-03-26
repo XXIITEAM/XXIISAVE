@@ -23,10 +23,6 @@ object Form1: TForm1
     Top = 0
     Width = 800
     Anchors = [akTop, akLeft, akRight, akBottom]
-<<<<<<< HEAD
-    AutoSize = True
-=======
->>>>>>> origin/master
     Color = 11711154
     Constraints.MaxHeight = 80
     Constraints.MinHeight = 80

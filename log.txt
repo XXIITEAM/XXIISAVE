@@ -1,2 +1,2 @@
-D:\TEAMXXII\Test\D:\TEAMXXII\Save\Test\*.*
-	    *.* /V /X /TEE /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /NP /R:1 /W:10 D:\TEAMXXII\Test\testsousrep.txtD:\TEAMXXII\Test\Sousrep\test.txt                  2  2 0 0 0 0   2  2 0 0 0 0  15 15 0 0 0 0                           
+C:\Users\stan\Desktop\PS3\shaderlog\D:\shaderlog\*.*
+	    *.* /V /X /TEE /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /NP /R:1 /W:10 C:\Users\stan\Desktop\PS3\shaderlog\.gitignoreFragmentProgram1.hlslFragmentProgram2.glslVertexProgram0.hlslVertexProgram1.glsl                              1      1 0 0 0 0       5      5 0 0 0 0  10.4 k 10.4 k 0 0 0 0                                           
