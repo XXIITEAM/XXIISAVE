@@ -1,0 +1,187 @@
+object Form1: TForm1
+  Left = 366
+  Height = 551
+  Top = 162
+  Width = 719
+  Caption = 'Form1'
+  ClientHeight = 551
+  ClientWidth = 719
+  DockSite = True
+  DragKind = dkDock
+  KeyPreview = True
+  OnDblClick = FormDblClick
+  LCLVersion = '6.0'
+  object Panel1: TPanel
+    Left = -7
+    Height = 111
+    Top = -8
+    Width = 726
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoSize = True
+    Color = 11711154
+    ParentColor = False
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 518
+    Top = 88
+    Width = 719
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoSize = True
+    ClientHeight = 518
+    ClientWidth = 719
+    Color = clWhite
+    ParentColor = False
+    TabOrder = 1
+    object ShellTreeView1: TShellTreeView
+      Tag = 1
+      Left = 2
+      Height = 309
+      Top = 63
+      Width = 359
+      Anchors = [akLeft, akBottom]
+      ExpandSignType = tvestPlusMinus
+      FileSortType = fstNone
+      HideSelection = False
+      HotTrack = True
+      ParentShowHint = False
+      ReadOnly = True
+      RowSelect = True
+      TabOrder = 1
+      ToolTips = False
+      OnDblClick = CopyDir
+      Options = [tvoAllowMultiselect, tvoAutoItemHeight, tvoHotTrack, tvoKeepCollapsedNodes, tvoReadOnly, tvoRowSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoNoDoubleClickExpand, tvoThemedDraw]
+      ObjectTypes = [otFolders]
+    end
+    object ListBox1: TListBox
+      Left = 360
+      Height = 309
+      Top = 63
+      Width = 360
+      Anchors = [akRight, akBottom]
+      ItemHeight = 0
+      OnDblClick = FormDblClick
+      TabOrder = 0
+    end
+    object Panel4: TPanel
+      Left = 1
+      Height = 47
+      Top = 1
+      Width = 360
+      ClientHeight = 47
+      ClientWidth = 360
+      TabOrder = 2
+      object Label1: TLabel
+        Left = 8
+        Height = 15
+        Top = 13
+        Width = 315
+        Caption = 'Double cliquez pour sélectionner des dossiers à sauvegarder'
+        ParentColor = False
+      end
+    end
+    object Panel5: TPanel
+      Left = 362
+      Height = 46
+      Top = 2
+      Width = 356
+      ClientHeight = 46
+      ClientWidth = 356
+      TabOrder = 3
+      object Label2: TLabel
+        Left = 21
+        Height = 15
+        Top = 12
+        Width = 214
+        Caption = 'Liste des dossiers qui seront sauvegardés'
+        ParentColor = False
+      end
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Height = 92
+    Top = 460
+    Width = 722
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClientHeight = 92
+    ClientWidth = 722
+    Font.Color = clBlack
+    ParentFont = False
+    TabOrder = 2
+    object Button3: TButton
+      Left = 16
+      Height = 25
+      Top = 32
+      Width = 75
+      Caption = 'Parcourir'
+      OnClick = Button3Click
+      TabOrder = 0
+    end
+    object Label3: TLabel
+      Left = 16
+      Height = 15
+      Top = 8
+      Width = 164
+      Caption = 'Emplacement de la sauvegarde'
+      ParentColor = False
+    end
+    object Edit1: TEdit
+      Left = 96
+      Height = 23
+      Top = 32
+      Width = 254
+      Color = clNone
+      Font.Color = clBlack
+      ParentFont = False
+      TabOrder = 1
+      Text = 'Choisissez un emplacement de sauvegarde...'
+    end
+    object Button1: TButton
+      Left = 584
+      Height = 47
+      Top = 8
+      Width = 123
+      Caption = 'Lancer la sauvegarde'
+      OnClick = Button1Click
+      TabOrder = 2
+    end
+    object ProgressBar1: TProgressBar
+      Left = 16
+      Height = 12
+      Top = 72
+      Width = 691
+      TabOrder = 3
+    end
+    object Label4: TLabel
+      Left = 360
+      Height = 15
+      Top = 8
+      Width = 34
+      Caption = 'Label4'
+      ParentColor = False
+    end
+  end
+  object SelectDirectoryDialog1: TSelectDirectoryDialog
+    OnClose = DestDir
+    Left = 448
+    Top = 480
+  end
+  object Process1: TProcess
+    Active = False
+    Options = []
+    Priority = ppNormal
+    StartupOptions = []
+    ShowWindow = swoNone
+    WindowColumns = 0
+    WindowHeight = 0
+    WindowLeft = 0
+    WindowRows = 0
+    WindowTop = 0
+    WindowWidth = 0
+    FillAttribute = 0
+    Left = 360
+    Top = 488
+  end
+end
