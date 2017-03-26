@@ -116,8 +116,8 @@ begin
       commande:= Concat('/c robocopy ', dSrc, ' ', dDest+s, '\', ' /MIR /W:10 /R:1 /NP /V /X /log:"log.txt" /v /TEE');
       ShellExecute(0,'open',PChar(prog),PChar(commande),PChar(extractfilepath(prog)), 0);
       ProgressBar1.Position:= ProgressBar1.Position + 1;
-      Label4.Caption := 'Copie Terminée...';
       end;
+    Label4.Caption := 'Copie Terminée...';
     ListBox1.Items.Clear;
 end;
 
