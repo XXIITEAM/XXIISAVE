@@ -11,9 +11,9 @@ object Form1: TForm1
   DockSite = True
   DragKind = dkDock
   KeyPreview = True
-  OnDblClick = FormDblClick
+  OnCreate = FormCreate
   LCLVersion = '6.0'
-  object Panel1: TPanel
+  object header: TPanel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
@@ -29,9 +29,9 @@ object Form1: TForm1
     ParentColor = False
     TabOrder = 0
   end
-  object Panel2: TPanel
+  object body: TPanel
     AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = Panel1
+    AnchorSideTop.Control = header
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
@@ -46,13 +46,14 @@ object Form1: TForm1
     Color = clWhite
     ParentColor = False
     TabOrder = 1
-    OnClick = Panel2Click
     object ShellTreeView1: TShellTreeView
       Tag = 1
-      AnchorSideLeft.Control = Panel2
+      AnchorSideLeft.Control = body
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = ListBox1
       Left = 1
-      Height = 371
+      Height = 372
       Top = 40
       Width = 423
       Anchors = [akTop, akLeft, akBottom]
@@ -64,15 +65,16 @@ object Form1: TForm1
       ReadOnly = True
       RowSelect = True
       TabOrder = 1
-      ToolTips = False
       OnDblClick = CopyDir
-      Options = [tvoAllowMultiselect, tvoAutoItemHeight, tvoHotTrack, tvoKeepCollapsedNodes, tvoReadOnly, tvoRowSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoNoDoubleClickExpand, tvoThemedDraw]
+      Options = [tvoAllowMultiselect, tvoAutoItemHeight, tvoHotTrack, tvoKeepCollapsedNodes, tvoReadOnly, tvoRowSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoNoDoubleClickExpand, tvoThemedDraw]
       ObjectTypes = [otFolders]
     end
     object ListBox1: TListBox
       AnchorSideLeft.Control = ShellTreeView1
       AnchorSideLeft.Side = asrBottom
-      AnchorSideRight.Control = Panel2
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = body
       AnchorSideRight.Side = asrBottom
       Left = 424
       Height = 391
@@ -80,14 +82,74 @@ object Form1: TForm1
       Width = 375
       Anchors = [akTop, akLeft, akRight, akBottom]
       ItemHeight = 0
-      OnDblClick = FormDblClick
+      OnDblClick = ListBox1Click
       ParentBidiMode = False
       TabOrder = 0
     end
+    object Panel1: TPanel
+      AnchorSideLeft.Control = body
+      AnchorSideTop.Control = body
+      AnchorSideRight.Control = body
+      AnchorSideRight.Side = asrBottom
+      Left = 1
+      Height = 39
+      Top = 1
+      Width = 798
+      Anchors = [akTop, akLeft, akRight]
+      ClientHeight = 39
+      ClientWidth = 798
+      TabOrder = 2
+      object ComboBox1: TComboBox
+        Left = 56
+        Height = 23
+        Hint = 'Sélectionnez un profile de sauvegarde'
+        Top = 8
+        Width = 232
+        ItemHeight = 15
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+      end
+      object Label1: TLabel
+        Left = 16
+        Height = 15
+        Top = 8
+        Width = 28
+        Caption = 'Profil'
+        ParentColor = False
+      end
+      object ChargerProfil: TButton
+        Left = 296
+        Height = 25
+        Top = 6
+        Width = 112
+        Caption = 'Charger le Profile'
+        TabOrder = 1
+      end
+      object Edit1: TEdit
+        Left = 432
+        Height = 23
+        Hint = 'Donnez un nom à votre profile de sauvegarde'
+        Top = 8
+        Width = 216
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        TextHint = 'Nom du profil'
+      end
+      object Button1: TButton
+        Left = 656
+        Height = 25
+        Top = 6
+        Width = 136
+        Caption = 'Sauvegarder profil'
+        TabOrder = 3
+      end
+    end
   end
-  object Panel3: TPanel
+  object bottom: TPanel
     AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = Panel2
+    AnchorSideTop.Control = body
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
@@ -103,35 +165,36 @@ object Form1: TForm1
     Font.Color = clBlack
     ParentFont = False
     TabOrder = 2
-    object Button3: TButton
-      AnchorSideLeft.Control = Panel3
+    object btParcourir: TButton
+      AnchorSideLeft.Control = bottom
       Left = 11
       Height = 25
-      Top = 41
+      Top = 32
       Width = 75
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 10
-      Caption = 'Parcourir'
-      OnClick = Button3Click
+      Caption = 'btParcourir'
+      OnClick = btParcourirClick
       TabOrder = 0
     end
-    object Label3: TLabel
-      AnchorSideLeft.Control = Panel3
+    object labelEmplacement: TLabel
+      AnchorSideLeft.Control = bottom
       Left = 11
       Height = 15
       Top = 13
       Width = 164
       Anchors = [akLeft, akBottom]
+      AutoSize = False
       BorderSpacing.Left = 10
       Caption = 'Emplacement de la sauvegarde'
       ParentColor = False
     end
-    object Edit1: TEdit
-      AnchorSideLeft.Control = Button3
+    object editParcourir: TEdit
+      AnchorSideLeft.Control = btParcourir
       AnchorSideLeft.Side = asrBottom
       Left = 86
       Height = 23
-      Top = 41
+      Top = 33
       Width = 254
       Anchors = [akLeft, akBottom]
       Color = clNone
@@ -140,19 +203,19 @@ object Form1: TForm1
       TabOrder = 1
       Text = 'Choisissez un emplacement de sauvegarde...'
     end
-    object Button1: TButton
-      Left = 639
+    object btSauvegarde: TButton
+      Left = 424
       Height = 53
-      Top = 14
+      Top = 16
       Width = 147
       Align = alCustom
       Anchors = [akRight, akBottom]
       Caption = 'Lancer la sauvegarde'
-      OnClick = Button1Click
+      OnClick = btSauvegardeClick
       TabOrder = 2
     end
-    object ProgressBar1: TProgressBar
-      AnchorSideLeft.Control = Panel3
+    object progressSauvegarde: TProgressBar
+      AnchorSideLeft.Control = bottom
       Left = 11
       Height = 12
       Top = 89
@@ -162,7 +225,7 @@ object Form1: TForm1
       TabOrder = 3
     end
     object Label4: TLabel
-      AnchorSideLeft.Control = Panel3
+      AnchorSideLeft.Control = bottom
       Left = 11
       Height = 15
       Top = 69
@@ -172,28 +235,21 @@ object Form1: TForm1
       Caption = 'Progression'
       ParentColor = False
     end
+    object Planif: TButton
+      Left = 688
+      Height = 25
+      Top = 13
+      Width = 96
+      Caption = 'Planification'
+      OnClick = PlanifClick
+      TabOrder = 4
+    end
   end
-  object SelectDirectoryDialog1: TSelectDirectoryDialog
+  object dialog: TSelectDirectoryDialog
     OnClose = DestDir
     Width = 28
     Height = 28
-    Left = 424
-    Top = 480
-  end
-  object Process1: TProcess
-    Active = False
-    Options = []
-    Priority = ppNormal
-    StartupOptions = []
-    ShowWindow = swoNone
-    WindowColumns = 0
-    WindowHeight = 0
-    WindowLeft = 0
-    WindowRows = 0
-    WindowTop = 0
-    WindowWidth = 0
-    FillAttribute = 0
-    Left = 464
-    Top = 472
+    Left = 360
+    Top = 520
   end
 end
