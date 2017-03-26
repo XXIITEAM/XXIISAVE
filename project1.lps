@@ -21,9 +21,15 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
+<<<<<<< HEAD
         <TopLine Value="90"/>
         <CursorPos X="116" Y="113"/>
         <UsageCount Value="42"/>
+=======
+        <TopLine Value="87"/>
+        <CursorPos X="89" Y="113"/>
+        <UsageCount Value="40"/>
+>>>>>>> origin/master
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
