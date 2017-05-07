@@ -1,2 +1,2 @@
-D:\TEAMXXII\Test\D:\TEAMXXII\Save\Test\*.*
+D:\TEAMXXII\XXIISAVE\log.txtD:\TEAMXXII\Test\D:\TEAMXXII\Save\Test\*.*
 	    *.* /V /X /TEE /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /NP /R:1 /W:10 D:\TEAMXXII\Test\Comptes.txtD:\TEAMXXII\Test\Nouveau dossier\Comptes.txt                  2  2 0 0 0 0   2  2 0 0 0 0  88 88 0 0 0 0                           
