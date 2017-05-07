@@ -1,0 +1,30 @@
+object Form4: TForm4
+  Left = 1175
+  Height = 592
+  Top = 242
+  Width = 296
+  Caption = 'Log'
+  ClientHeight = 592
+  ClientWidth = 296
+  LCLVersion = '6.0'
+  object PanelLog: TPanel
+    Left = 0
+    Height = 608
+    Top = 0
+    Width = 301
+    TabOrder = 0
+  end
+  object MemoLog: TMemo
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 600
+    Top = 0
+    Width = 301
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Lines.Strings = (
+      'MemoLog'
+    )
+    TabOrder = 1
+  end
+end

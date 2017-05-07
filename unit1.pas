@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, JvValidators, JvHtControls, JvNavigationPane,
   Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls, ActnList, ComCtrls,
-  ShellCtrls, CheckLst, Menus, Windows, Process, strutils, Unit2;
+  ShellCtrls, CheckLst, Menus, Windows, Process, strutils, Unit2, Unit4;
 
 const
   BUF_SIZE = 2048; // Buffer size for reading the output in chunks
@@ -39,6 +39,7 @@ type
     ShellTreeView1: TShellTreeView;
     AStringList: TStringList;
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure ListBox1Click(Sender: TObject);
     procedure btSauvegardeClick(Sender: TObject);
     procedure PlanifClick(Sender: TObject);
@@ -94,6 +95,11 @@ begin
   closefile(fichierSauvegarde);
 end;
 
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  Form4.Show;
+end;
+
 procedure TForm1.CopyDir(Sender: TObject);
 begin
   ADecouper := ShellTreeView1.GetPathFromNode(ShellTreeView1.Selected);
@@ -125,7 +131,7 @@ begin
     prog := 'cmd.exe';
     progressSauvegarde.Min := 0;
     progressSauvegarde.Max := ListBox1.Items.Count;
-    progressSauvegarde.Position := progressSauvegarde.Position + 1;
+    //progressSauvegarde.Position := progressSauvegarde.Position + 1;
     for i := 0 to ListBox1.Items.Count - 1 do
       begin
         dSrc := ListBox1.Items.ValueFromIndex[i];
@@ -160,8 +166,15 @@ begin
         // Process option poUsePipes has to be used so the output can be captured.
         // Process option poWaitOnExit can not be used because that would block
         // this program, preventing it from reading the output data of the process.
+        if i = ListBox1.Items.Count - 1 then
+        begin
         AProcess.Options := [poWaitOnExit];
         AProcess.Options := AProcess.Options + [poUsePipes];
+        end
+        else
+        begin
+        AProcess.Options := AProcess.Options + [poUsePipes];
+        end;
         AProcess.ShowWindow:= swoHIDE;
         // Start the process (run the dir/ls command)
         AProcess.Execute;
@@ -185,28 +198,29 @@ begin
         AProcess.Free;
 
         // Now that all data has been read it can be used; for example to save it to a file on disk
-        with TFileStream.Create('output.txt', fmCreate) do
-        begin
-             OutputStream.Position := 0; // Required to make sure all data is copied from the start
-             CopyFrom(OutputStream, OutputStream.Size);
-             Free
-        end;
-        //
-        //// Or the data can be shown on screen
-        //with TStringList.Create do
+        //with TFileStream.Create('output.txt', fmCreate) do
         //begin
-        //  OutputStream.Position := 0; // Required to make sure all data is copied from the start
-        //  LoadFromStream(OutputStream);
-        //  writeln(Text);
-        //  writeln('--- Number of lines = ', Count, '----');
-        //  Free
+        //     OutputStream.Position := 0; // Required to make sure all data is copied from the start
+        //     CopyFrom(OutputStream, OutputStream.Size);
+        //     Free
         //end;
+        //// Or the data can be shown on screen
+        with TStringList.Create do
+        begin
+          OutputStream.Position := 0; // Required to make sure all data is copied from the start
+          LoadFromStream(OutputStream);
+          //writeln(Text);
+          //writeln('--- Number of lines = ', Count, '----');
+           Unit4.Form4.MemoLog.Lines.Add(Text + Chr(13));
+          Free
+        end;
 
         // Clean up
         OutputStream.Free;
+        progressSauvegarde.Position := i +1;
       end;
       ListBox1.Items.Clear;
-      progressSauvegarde.Position := progressSauvegarde.Position + 1;
+
       Label4.Caption := 'Copie Terminée...';
     end;
   end;
