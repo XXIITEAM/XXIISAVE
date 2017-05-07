@@ -25,37 +25,40 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="10">
+    <RequiredPackages Count="11">
       <Item1>
-        <PackageName Value="FCL"/>
+        <PackageName Value="pl_richmemo"/>
       </Item1>
       <Item2>
-        <PackageName Value="pl_jvcl"/>
+        <PackageName Value="FCL"/>
       </Item2>
       <Item3>
-        <PackageName Value="pl_abbrevia"/>
+        <PackageName Value="pl_jvcl"/>
       </Item3>
       <Item4>
-        <PackageName Value="pl_colorlib"/>
+        <PackageName Value="pl_abbrevia"/>
       </Item4>
       <Item5>
-        <PackageName Value="pl_excontrols"/>
+        <PackageName Value="pl_colorlib"/>
       </Item5>
       <Item6>
-        <PackageName Value="pl_virtualtreesextra"/>
+        <PackageName Value="pl_excontrols"/>
       </Item6>
       <Item7>
-        <PackageName Value="lz_cody"/>
+        <PackageName Value="pl_virtualtreesextra"/>
       </Item7>
       <Item8>
-        <PackageName Value="bs_Controls"/>
+        <PackageName Value="lz_cody"/>
       </Item8>
       <Item9>
-        <PackageName Value="pl_bgracontrols"/>
+        <PackageName Value="bs_Controls"/>
       </Item9>
       <Item10>
-        <PackageName Value="LCL"/>
+        <PackageName Value="pl_bgracontrols"/>
       </Item10>
+      <Item11>
+        <PackageName Value="LCL"/>
+      </Item11>
     </RequiredPackages>
     <Units Count="5">
       <Unit0>
@@ -90,6 +93,7 @@
         <Filename Value="unit4.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form4"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit4"/>
       </Unit4>

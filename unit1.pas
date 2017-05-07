@@ -140,7 +140,7 @@ begin
         totalChar := dSrc.Length;
         posDroiteDelim := totalChar - posDelim;
         s := RightStr(dSrc, posDroiteDelim);
-        commande := Concat('robocopy "', dSrc, '" "', dDest + s, '" /MIR /W:10 /R:1 /NP /X /log:"log.txt" /v /TEE');
+        commande := Concat('robocopy "', dSrc, '" "', dDest + s, '" /MIR /W:10 /R:1 /X /log+:"log.txt" /NP /v /TEE');
         //ShellExecute(0, 'open', PChar(prog), PChar(commande), PChar(extractfilepath(prog)), 1);
 
 
@@ -167,16 +167,17 @@ begin
         // Process option poUsePipes has to be used so the output can be captured.
         // Process option poWaitOnExit can not be used because that would block
         // this program, preventing it from reading the output data of the process.
-        if i = ListBox1.Items.Count - 1 then
-        begin
+        //if i = ListBox1.Items.Count - 1 then
+        //begin
         AProcess.Options := [poWaitOnExit];
         AProcess.Options := AProcess.Options + [poUsePipes];
-        end
-        else
-        begin
-        AProcess.Options := [poUsePipes];
-        end;
+        //end
+        //else
+        //begin
+        //AProcess.Options := [poUsePipes];
+        //end;
         AProcess.ShowWindow:= swoHIDE;
+        Unit4.Form4.MemoLog.Lines.Add('Lancement de la commande : '+ commande+ chr(13) + chr(10));
         // Start the process (run the dir/ls command)
         AProcess.Execute;
 
@@ -210,16 +211,16 @@ begin
         begin
           OutputStream.Position := 0; // Required to make sure all data is copied from the start
           LoadFromStream(OutputStream);
-           Unit4.Form4.MemoLog.Lines.Add(Text + Chr(13));
+          Unit4.Form4.MemoLog.Lines.Add('Résultat de la copie : '+Text+chr(13)+chr(10));
           Free
         end;
 
+
         // Clean up
         OutputStream.Free;
-        progressSauvegarde.Position := i +1;
+        progressSauvegarde.Position := i + 1;
       end;
-      ListBox1.Items.Clear;
-
+        ListBox1.Items.Clear;
       Label4.Caption := 'Copie Terminée...';
     end;
   end;
@@ -233,7 +234,6 @@ end;
 
 procedure TForm1.PlanifClick(Sender: TObject);
 begin
-  //PopupMenu1.PopUp;
   Form2.Show;
 end;
 

@@ -5,16 +5,16 @@ unit Unit4;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls;
+  Classes, SysUtils, FileUtil, RichMemo, Forms, Controls, Graphics, Dialogs,
+  ExtCtrls, StdCtrls;
 
 type
 
   { TForm4 }
 
   TForm4 = class(TForm)
-    MemoLog: TMemo;
     PanelLog: TPanel;
+    MemoLog: TRichMemo;
   private
 
   public
