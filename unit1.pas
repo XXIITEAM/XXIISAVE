@@ -160,8 +160,9 @@ begin
         // Process option poUsePipes has to be used so the output can be captured.
         // Process option poWaitOnExit can not be used because that would block
         // this program, preventing it from reading the output data of the process.
-        AProcess.Options := [poWaitOnExit, poUsePipes];
-
+        AProcess.Options := [poWaitOnExit];
+        AProcess.Options := AProcess.Options + [poUsePipes];
+        AProcess.ShowWindow:= swoHIDE;
         // Start the process (run the dir/ls command)
         AProcess.Execute;
 
