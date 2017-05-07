@@ -97,7 +97,7 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-  Form4.Show;
+  Unit4.Form4.MemoLog.Clear;
 end;
 
 procedure TForm1.CopyDir(Sender: TObject);
@@ -125,6 +125,7 @@ procedure TForm1.btSauvegardeClick(Sender: TObject);
 begin
   if (editParcourir.Text <> 'Choisissez un emplacement de sauvegarde...') and (editParcourir.Text <> '') then
   begin
+    Form4.Show;
     //CreatePipe(InputPipeRead, InputPipeWrite, @Security, 0);
     dDest := editParcourir.Text+'\';
     dSrc := '';
@@ -173,7 +174,7 @@ begin
         end
         else
         begin
-        AProcess.Options := AProcess.Options + [poUsePipes];
+        AProcess.Options := [poUsePipes];
         end;
         AProcess.ShowWindow:= swoHIDE;
         // Start the process (run the dir/ls command)
@@ -209,8 +210,6 @@ begin
         begin
           OutputStream.Position := 0; // Required to make sure all data is copied from the start
           LoadFromStream(OutputStream);
-          //writeln(Text);
-          //writeln('--- Number of lines = ', Count, '----');
            Unit4.Form4.MemoLog.Lines.Add(Text + Chr(13));
           Free
         end;

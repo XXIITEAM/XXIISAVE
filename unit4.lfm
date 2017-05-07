@@ -1,10 +1,10 @@
 object Form4: TForm4
   Left = 1175
-  Height = 592
+  Height = 600
   Top = 242
   Width = 296
   Caption = 'Log'
-  ClientHeight = 592
+  ClientHeight = 600
   ClientWidth = 296
   LCLVersion = '6.0'
   object PanelLog: TPanel
@@ -18,7 +18,7 @@ object Form4: TForm4
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 600
+    Height = 608
     Top = 0
     Width = 301
     Anchors = [akTop, akLeft, akRight, akBottom]

@@ -1,2 +1,2 @@
-D:\TEAMXXII\Tools\site\PhentomCMS\content\download\D:\TEAMXXII\Save\download\*.*
-	    *.* /V /X /TEE /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /NP /R:1 /W:10 D:\TEAMXXII\Tools\site\PhentomCMS\content\download\index.html               1 0 1 0 0 0  1 0 1 0 0 0  0 0 0 0 0 0             
+D:\Programmes\SITES\Wamp\www\equipment-upgrades\acoustic-control\D:\TEAMXXII\Save\acoustic-control\*.*
+	    *.* /V /X /TEE /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /NP /R:1 /W:10 D:\Programmes\SITES\Wamp\www\equipment-upgrades\acoustic-control\index.html                           1     1 0 0 0 0      1     1 0 0 0 0  9.7 k 9.7 k 0 0 0 0                                       
